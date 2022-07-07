@@ -20,8 +20,9 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 
 ## Screenshots
 
-<div style="display: flex;">
 Screenshots taken while building a demo site:
+
+<div style="display: flex;">
 
 <img src="https://user-images.githubusercontent.com/76481787/177839709-3dcf07aa-3844-4735-af77-c1320964b234.png" alt="Build Screenshot" width="70%">
 <img src="https://user-images.githubusercontent.com/76481787/177840534-aec51e90-ff32-49fd-b963-6361a4d282cc.png" alt="File structure after building" width="20%">
