@@ -6,7 +6,6 @@ Probably the simplest static site generator in the world! (Yes, inspired from Ca
 
 FOSSFolio is a Free and Open Source Software (FOSS) meant for developers to create their own static websites (mostly portfolios), with fine-grained control.
 
-
 ## Intended Audience
 
 Developers or coding enthusiasts who need a static site (maybe like a blog) with minimal effort.
@@ -18,7 +17,16 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 * Jinja2 templating (Coming soon)
 * Intuitive page structure
 * Automatic sitemap generation
-  
+
+## Screenshots
+
+<div style="display: flex;">
+Screenshots taken while building a demo site:
+
+<img src="https://user-images.githubusercontent.com/76481787/177839709-3dcf07aa-3844-4735-af77-c1320964b234.png" alt="Build Screenshot" width="70%">
+<img src="https://user-images.githubusercontent.com/76481787/177840534-aec51e90-ff32-49fd-b963-6361a4d282cc.png" alt="File structure after building" width="20%">
+</div>
+
 ## Getting started
 
 The main objective of creating FOSSFolio was to avoid the different complexities imposed by other static site generator (like Hugo) that give you a lot of control, but have quite a learning curve. I really love Hugo, but sometimes it requires a lot of changes even to add/change some basic functionalities.
