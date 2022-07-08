@@ -14,7 +14,7 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 
 * **Fully Hackable(!)**
 * Plugins to extend functionalities of basic templates
-* Jinja2 templating (Coming soon)
+* Jinja2 templating (under development)
 * Intuitive page structure
 * Automatic sitemap generation
 
@@ -58,7 +58,7 @@ I've given two default plugins for now:
 
 * The `user_metadata` plugin: Inserts your PC's hostname wherever you insert `<% user %>` in your markdown files. 
 
-### Jinja templates *(Coming soon)*
+### Jinja templates *(Under devlopment)*
 
 You can use Jinja templates too. The context passing mechanism is under development.
 ## Hacking around
