@@ -1,10 +1,23 @@
 from pathlib import Path
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional, List, Tuple
 from jinja2 import Environment, FileSystemLoader, Template
 
 BASE_DIR = Path(__file__).parent
 
 DOMAIN_NAME: str = "https://anuran-roy.github.io"
+
+# Markdown configuration
+
+MARKDOWN_EXTENSIONS: List = [
+    "attr_list",
+    "def_list",
+    "toc",
+]
+# Contains list of Markdown extensions to be used while processing markdown.
+# Refer https://python-markdown.github.io/extensions/ for more details
+
+
+# Templating configuration
 
 TEMPLATE_NAME: str = "_default"  # You can try "alt" here as well
 
@@ -32,6 +45,7 @@ class TemplatingEnv:
 
 TEMPLATE_ENV = TemplatingEnv()
 
+# Mapping settings
 
 DEFAULT_MAPPING: Dict[str, Any] = {
     "archetypes": {

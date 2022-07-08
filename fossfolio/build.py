@@ -7,7 +7,7 @@ from rich import print as rich_print
 import shutil
 import glob
 import time
-from config import BASE_DIR
+from config import BASE_DIR, MARKDOWN_EXTENSIONS
 from sitemap import generate_sitemap
 from slugify import slugify
 
@@ -21,7 +21,7 @@ def parse_md(md_string):
     # with open(md_file, "r") as f:
     #     md = f.read()
     # return markdown(md)
-    return markdown(md_string, extensions=['attr_list'])
+    return markdown(md_string, extensions=MARKDOWN_EXTENSIONS)
 
 
 def collect_static() -> None:

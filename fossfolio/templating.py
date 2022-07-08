@@ -58,7 +58,9 @@ def wrap_template(
     # rich_print(files_list)
 
     if verbose:
-        rich_print(f"[bold]Available archetypes for the template {TEMPLATE_NAME}[/bold]:")
+        rich_print(
+            f"[bold]Available archetypes for the template {TEMPLATE_NAME}[/bold]:"
+        )
         for i in files_list:
             rich_print(f'- [green]{i[i.rindex("/")+1:]}[/green]')
 
