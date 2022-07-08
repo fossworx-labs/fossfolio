@@ -9,6 +9,9 @@ import glob
 import time
 from config import BASE_DIR
 from sitemap import generate_sitemap
+from slugify import slugify
+
+from templating import wrap_template
 
 # print(BASE_DIR.resolve())
 
@@ -18,7 +21,7 @@ def parse_md(md_string):
     # with open(md_file, "r") as f:
     #     md = f.read()
     # return markdown(md)
-    return markdown(md_string)
+    return markdown(md_string, extensions=['attr_list'])
 
 
 def collect_static() -> None:
@@ -42,6 +45,8 @@ def excluded(
     """Handle files and directories to exclude. Returns True if file should be excluded."""
     supported_types: Tuple = ("md", "html")
     skip_dirs: Tuple = ("plugins", "templates", "build", "tests")
+
+    scan_dirs: Tuple = ("assets", "content")
 
     if filename.split(".")[-1] not in supported_types:
         if verbose == "True":
@@ -98,31 +103,37 @@ def list_files(
 def write_html(
     html_code: str = "",
     html_file_location: str = "",
-    with_template: bool = False,
     templated_context: Dict = {},
 ) -> None:
+    """Writes the provided HTML templated code to the build folder."""
+    html_file_location = html_file_location.replace("/build/content/", "/build/")
     if not os.path.exists(html_file_location):
         os.makedirs(
             name=html_file_location[: html_file_location.rindex("/")], exist_ok=True
         )
 
-    if with_template:
-        pass  # Write the template embedding logic here.
-
     with open(html_file_location, "w") as f:
         f.write(html_code)
 
 
-def build(sitemap: bool = True) -> None:
+def build(
+    sitemap: bool = True,
+    with_template: bool = False,
+) -> None:
     start_time = time.time()
     shutil.rmtree(BASE_DIR / "build/", ignore_errors=True)
 
     files_dict = list_files(exclude=["templates"])
 
+    if with_template:
+        # Write the template embedding logic here.
+        for i in files_dict:
+            files_dict[i] = wrap_template(html_string=files_dict[i], location=i)
+
     for i in files_dict:
         write_html(
             html_code=files_dict[i],
-            html_file_location=f"{BASE_DIR}/build/{i[:i.rindex('.')]}.html",
+            html_file_location=f"{BASE_DIR}/build/{i[:i.rindex('/')]}/{slugify(i[i.rindex('/'):i.rindex('.')])}.html",
         )
 
     collect_static()
@@ -136,4 +147,4 @@ def build(sitemap: bool = True) -> None:
 
 
 if __name__ == "__main__":
-    build()
+    build(with_template=True)

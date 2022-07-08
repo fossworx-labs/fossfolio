@@ -7,6 +7,7 @@ The run() method must return an object ( a string or a dictionary) from which va
 
 import socket
 
+
 def run(template_str, *args, **kwargs):
     user = socket.gethostname()
     return template_str.replace(r"<% user %>", user)

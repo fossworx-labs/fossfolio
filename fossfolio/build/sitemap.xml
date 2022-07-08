@@ -1,11 +1,14 @@
 <ns0:sitemapindex xmlns:ns0="http://www.sitemaps.org/schemas/sitemap/0.9">
   <ns0:sitemap>
+    <ns0:loc>https://anuran-roy.github.io/intro.html</ns0:loc>
+  </ns0:sitemap>
+  <ns0:sitemap>
     <ns0:loc>https://anuran-roy.github.io/posts/dummy.html</ns0:loc>
   </ns0:sitemap>
   <ns0:sitemap>
     <ns0:loc>https://anuran-roy.github.io/posts/dummy2.html</ns0:loc>
   </ns0:sitemap>
   <ns0:sitemap>
-    <ns0:loc>https://anuran-roy.github.io/posts/intro.html</ns0:loc>
+    <ns0:loc>https://anuran-roy.github.io/posts/hello-there.html</ns0:loc>
   </ns0:sitemap>
 </ns0:sitemapindex>
