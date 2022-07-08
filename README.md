@@ -72,6 +72,8 @@ You can even integrate the modules and functionalities into other larger program
 Since FOSSfolio is based on Python-markdown under the hood, you can use the additional features of Python-markdown, that don't exist in the vanilla Markdown specifications. Some of those features are:
 
 * [**Attribute lists**](https://python-markdown.github.io/extensions/attr_list/) (a lifesaver for good SEO)
-* [**Extensions API**](https://python-markdown.github.io/extensions/api/) (supercharged Markdown)
+* [**Tables**](https://python-markdown.github.io/extensions/tables/) (to create tables in Markdown that will be rendered to HTML) 
+
+For more extensions, you can check out the [**Extensions Glossary**](https://python-markdown.github.io/extensions/) to supercharged Markdown!
 
 and so on.
