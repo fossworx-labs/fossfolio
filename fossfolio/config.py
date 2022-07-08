@@ -9,8 +9,7 @@ DOMAIN_NAME: str = "https://anuran-roy.github.io"
 # Markdown configuration
 
 MARKDOWN_EXTENSIONS: List = [
-    "attr_list",
-    "def_list",
+    "extra",
     "toc",
 ]
 # Contains list of Markdown extensions to be used while processing markdown.
