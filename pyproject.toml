@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fossfolio"
+version = "0.1.0"
+description = ""
+authors = ["Anuran Roy <anuranroy02@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+beautifulsoup4 = "^4.11.1"
+rich = "^12.4.4"
+Jinja2 = "^3.1.2"
+Markdown = "^3.3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+black = "^22.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
