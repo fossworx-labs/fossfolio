@@ -41,12 +41,15 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 The main objective of creating FOSSFolio was to avoid the different complexities imposed by other static site generator (like Hugo) that give you a lot of control, but have quite a learning curve. I really love Hugo, but sometimes it requires a lot of changes even to add/change some basic functionalities.
 
 1. Clone this repository
-2. Install dependencies with `pip install -r requirements.txt`
-3. Navigate to `fossfolio` folder
-4. Clear all the files and subfolders in the `assets` and `posts` folder
-5. Put your own content in place of those
-6. Run `python build.py`
-7. The `build` folder will contain the generated static site.
+2. Open the folder.
+3. Install poetry using `pip install --upgrade poetry`.
+4. Initialize poetry with `poetry init`
+5. Install dependencies with `poetry install`
+6. Navigate to `fossfolio` folder
+7. Clear all the files and subfolders in the `assets` and `posts` folder
+8. Put your own content in place of those
+9. Run `python build.py`
+10. The `build` folder will contain the generated static site.
 
 ## Templating with FOSSFolio
 
@@ -82,6 +85,6 @@ Since FOSSfolio is based on Python-markdown under the hood, you can use the addi
 * [**Attribute lists**](https://python-markdown.github.io/extensions/attr_list/) (a lifesaver for good SEO)
 * [**Tables**](https://python-markdown.github.io/extensions/tables/) (to create tables in Markdown that will be rendered to HTML) 
 
-For more extensions, you can check out the [**Extensions Glossary**](https://python-markdown.github.io/extensions/) to supercharged Markdown!
-
 and so on.
+
+For more extensions, you can check out the [**Extensions Glossary**](https://python-markdown.github.io/extensions/) to supercharge Markdown!
