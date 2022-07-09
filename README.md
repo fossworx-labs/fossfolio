@@ -20,13 +20,21 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 
 ## Screenshots
 
-Screenshots taken while building a demo site:
+**Console while building a demo site:**
 
 <div style="display: flex;">
-
-<img src="https://user-images.githubusercontent.com/76481787/177839709-3dcf07aa-3844-4735-af77-c1320964b234.png" alt="Build Screenshot" width="70%">
-<img src="https://user-images.githubusercontent.com/76481787/177840534-aec51e90-ff32-49fd-b963-6361a4d282cc.png" alt="File structure after building" width="20%">
+  <img src="https://user-images.githubusercontent.com/76481787/177839709-3dcf07aa-3844-4735-af77-c1320964b234.png" alt="Build Screenshot" width="70%">
+  <img src="https://user-images.githubusercontent.com/76481787/177840534-aec51e90-ff32-49fd-b963-6361a4d282cc.png" alt="File structure after building" width="20%">
 </div>
+<br><br>
+
+**Post rendered with default theme using the `default.html` mapping:**
+
+<div style="display: flex;">
+  <img src="https://user-images.githubusercontent.com/76481787/178124033-3f7b2b26-5c44-4ab1-b149-e7ca37aca1cc.png" alt="Sample page wrapped in default theme">
+</div>
+
+
 
 ## Getting started
 
