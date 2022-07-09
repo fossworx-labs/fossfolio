@@ -1,4 +1,5 @@
 # FOSSFolio
+<img src="https://user-images.githubusercontent.com/76481787/178124946-03464baa-9493-44a4-93e1-e52e5ef1ad5c.png" alt="Fossfolio Logo" width="50%">
 
 Probably the simplest static site generator in the world! (Yes, inspired from Carlsberg commercials 😜)  
 
