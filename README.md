@@ -13,10 +13,10 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 ## Features
 
 * **Fully Hackable(!)**
-* Plugins to extend functionalities of basic templates
-* Jinja2 templating (under development)
-* Intuitive page structure
-* Automatic sitemap generation
+* **Plugins to extend functionalities of basic templates:** A plugin can be anything- from replacing a simple placeholder with some simple value, to some complex JavaScript embedding beast, you can do anything with plugins, as long as you follow the rules for [Plugin Development](#plugin-development) 
+* **Jinja2 templating (under development):** You can use Jinja templating for all your themes, as well as create themes based on it!
+* **Flexible page structure:** Whatever page structure you want, you can have it 😃, as long as you place it inside the `content/` folder, directly or indirectly. You just need to have a theme for it (or customize your theme accordingly).
+* **Automatic sitemap generation on-the-fly**: Yes, I know that getting the SEO right is a pain. So I implemented an automated sitemap generator, which generates readable sitemaps (to the best of my knowledge) that can be easily crawled by Search Engine Bots 🥳.
 
 ## Screenshots
 
@@ -33,8 +33,13 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 <div style="display: flex;">
   <img src="https://user-images.githubusercontent.com/76481787/178124033-3f7b2b26-5c44-4ab1-b149-e7ca37aca1cc.png" alt="Sample page wrapped in default theme">
 </div>
+<br><br>
 
+**Example of an auto-generated sitemap**:
 
+<div style="display: flex;">
+  <img src="https://user-images.githubusercontent.com/76481787/178124342-cee1f96a-9bbf-4039-9258-614b02774d3d.png" alt="Auto-generated sitemap example">
+</div>
 
 ## Getting started
 
@@ -77,6 +82,20 @@ You can use Jinja templates too. The context passing mechanism is under developm
 Keeping the intended audience in mind, the USP of FOSSFolio is the degree of customization it offers. You can hack about just anything - the templates, the plugins - heck even the `build.py` is a small file that aggregates all the small modules into a default workflow - you can hack around that as well.
 
 You can even integrate the modules and functionalities into other larger programs!
+
+<h2 id="plugin-developmenr">Plugin Development</h2>
+
+A plugin can consist of anything, as long as it satisfies the following criteria:
+
+1. It has to act like a module (that is, it should have an `__init__.py`)
+2. It should have a `main.py` file that acts like a controller for other functionalities of the plugin.
+3. It should have a `run` method inside `main.py`, that will act as the controller method
+4. The `run` method should return a string containing the modified html code. (Be very careful at this step, since it may open your plugin to JS-based vulnerabilities. Any sanity checks are your responsibility - in exchange for maximum freedom with what you can do.) 
+
+**Some points you may want to keep in mind:**
+
+1. Plugins are processed before wrapping the html code in the template. So you should be careful not to change any placeholder for Jinja while processing.
+2. Not a strict rule, but `<%...%>` style is pretty familiar to most developers around the world (thanks to JSP, EJS, etc). So you may want to keep placeholders in that format for better readability.
 
 ## Additional Notes
 
