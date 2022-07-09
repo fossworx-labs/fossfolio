@@ -11,5 +11,8 @@ I also love to write (as apparent from this long bio 😆) and am a part of quit
 Got a new idea? Do hit me up!
 {: .px-5 .py-4 .text-lg .font-red }
 
-[**See my Link Tree!**](https://linktr.ee/anuranroy) \
+[**See my Link Tree!**](https://linktr.ee/anuranroy)
+{: .px-5 .py-1 .text-lg .font-red }
+
 [**Send me an Email!**](mailto:anuranroy02@gmail.com)
+{: .px-5 .py-1 .text-lg .font-red }
