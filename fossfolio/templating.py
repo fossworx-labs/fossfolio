@@ -25,11 +25,25 @@ def apply_mapping(
     html_string: str = None,
     mapping: Dict[str, Any] = {},
     contexts: Optional[Dict[str, Any]] = {},
+    verbose: Optional[bool] = False,
 ) -> str:
     """The method where the mappings are actually
     applied with different archetypes of content.
     """
 
+    if verbose:
+        rich_print(
+            f"\n\n\n{__file__} > apply_mapping: HTML String received is of length = \n\n\n",
+            len(html_string),
+        )
+
+        a = TEMPLATE_ENV.render(
+            location=mapping["template"], context={"content": html_string, **contexts}
+        )
+
+        rich_print(
+            f"Rendered html string with mapping {mapping}. Length of string: {len(a)}"
+        )
     return prettify_html(
         TEMPLATE_ENV.render(
             location=mapping["template"], context={"content": html_string, **contexts}
@@ -49,9 +63,15 @@ def wrap_template(
     returned by get_mapping().
     """
 
+    if verbose:
+        rich_print(
+            f"\n\n\n{__file__} > wrap_template: HTML String received from {location} = \n\n\n",
+            html_string,
+        )
+        rich_print(html_string)
     # mapping: Dict[str, Any] = get_mapping().get("archetypes")
 
-    TEMPLATE_PATTERN = f"{TEMPLATE_DIR.absolute()}/*.html"
+    TEMPLATE_PATTERN = f"{TEMPLATE_DIR.absolute()}/**/*.html"
 
     files_list: List = list(glob.glob(TEMPLATE_PATTERN, recursive=True))
 
@@ -69,7 +89,17 @@ def wrap_template(
 
     detected_archetype_mapping: Dict[str, str] = auto_archetype(location=location)
 
-    return apply_mapping(html_string=html_string, mapping=detected_archetype_mapping)
+    context_dict: Dict = {}
+    if "context" in kwargs:
+        context_dict = kwargs["contexts"]
+
+    if verbose:
+        rich_print(f"{len(html_string)}\t{detected_archetype_mapping}\t{context_dict}")
+    return apply_mapping(
+        html_string=html_string,
+        mapping=detected_archetype_mapping,
+        contexts=context_dict,
+    )
 
 
 if __name__ == "__main__":

@@ -55,7 +55,7 @@ def excluded(
             )
         return True
 
-    if dirpath.split("/")[1] in skip_dirs:
+    if dirpath.split("/")[1] not in scan_dirs:
         if verbose == "True":
             rich_print(
                 f"[bold yellow]Skipping[/bold yellow] {dirpath}/{filename} as the directory {dirpath} is to be skipped"
@@ -74,7 +74,10 @@ def excluded(
 
 
 def list_files(
-    exclude: Optional[List] = None, *args: Optional[List], **kwargs: Optional[Dict]
+    exclude: Optional[List] = None,
+    verbose: Optional[bool] = False,
+    *args: Optional[List],
+    **kwargs: Optional[Dict],
 ) -> Dict[str, str]:
     """Parses all supported document files and returns a mapping of file paths to file contents."""
     path_dict: Dict[str, str] = {}
@@ -89,13 +92,18 @@ def list_files(
         ]
 
     for i in listOfFiles:
-        with open(i.absolute(), "r") as f:
-            path_dict[str(i)] = f.read()
+        path_dict[str(i)] = open(i.absolute(), "r").read()
+        if verbose:
+            rich_print("Reading file ", i.absolute())
+            rich_print(path_dict[str(i)])
 
     parsed_markdown: Dict[str, str] = inject.inject(path_dict)
 
     for i in parsed_markdown:
         parsed_markdown[i] = parse_md(parsed_markdown[i])
+        if verbose:
+            rich_print("\n\nParsed HTML ", i)
+            rich_print(parsed_markdown[str(i)])
 
     return parsed_markdown
 
@@ -104,9 +112,14 @@ def write_html(
     html_code: str = "",
     html_file_location: str = "",
     templated_context: Dict = {},
+    verbose: Optional[bool] = False,
 ) -> None:
     """Writes the provided HTML templated code to the build folder."""
     html_file_location = html_file_location.replace("/build/content/", "/build/")
+
+    if verbose:
+        rich_print(f"Writing {html_code[:10]}... to {html_file_location}")
+
     if not os.path.exists(html_file_location):
         os.makedirs(
             name=html_file_location[: html_file_location.rindex("/")], exist_ok=True
@@ -119,6 +132,7 @@ def write_html(
 def build(
     sitemap: bool = True,
     with_template: bool = False,
+    verbose: Optional[bool] = False,
 ) -> None:
     start_time = time.time()
     shutil.rmtree(BASE_DIR / "build/", ignore_errors=True)
@@ -131,6 +145,8 @@ def build(
             files_dict[i] = wrap_template(html_string=files_dict[i], location=i)
 
     for i in files_dict:
+        if verbose:
+            rich_print(f"files_dict.{i} = {files_dict[i][:10]}")
         write_html(
             html_code=files_dict[i],
             html_file_location=f"{BASE_DIR}/build/{i[:i.rindex('/')]}/{slugify(i[i.rindex('/'):i.rindex('.')])}.html",
