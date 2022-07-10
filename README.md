@@ -1,6 +1,8 @@
 # FOSSFolio
 <img src="https://user-images.githubusercontent.com/76481787/178124946-03464baa-9493-44a4-93e1-e52e5ef1ad5c.png" alt="Fossfolio Logo" width="50%">
 
+<a href="https://www.producthunt.com/posts/fossfolio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-fossfolio" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=352081&theme=light" alt="Fossfolio - Probably&#0032;the&#0032;simplest&#0032;static&#0032;site&#0032;generator&#0032;in&#0032;the&#0032;world&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+
 Probably the simplest static site generator in the world! (Yes, inspired from Carlsberg commercials 😜)  
 
 ## About FOSSFolio
