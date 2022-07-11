@@ -46,6 +46,14 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 </div>
 <br><br>
 
+**Post rendered with blogtastic theme using the `default.html` mapping:**
+
+<div style="display: flex;">
+  <img src="https://user-images.githubusercontent.com/76481787/178350406-539099fa-725a-4a6c-8643-7f4142ca8d91.png" alt="Sample page wrapped in blogtastic theme">
+</div>
+<br><br>
+
+
 **Example of an auto-generated sitemap**:
 
 <div style="display: flex;">
