@@ -8,7 +8,6 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/anuran-roy/fossfolio?style=for-the-badge)
 ![Website](https://img.shields.io/website?down_color=red&down_message=down&style=for-the-badge&up_color=green&up_message=up&url=https%3A%2F%2Fanuran-roy.github.io%2Ffossfolio%2F)
 <br><br>
-<a href="https://www.producthunt.com/posts/fossfolio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-fossfolio" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=352081&theme=light" alt="Fossfolio - Probably&#0032;the&#0032;simplest&#0032;static&#0032;site&#0032;generator&#0032;in&#0032;the&#0032;world&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 <a href="https://www.producthunt.com/posts/fossfolio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-fossfolio" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=352081&theme=light" alt="Fossfolio - Probably&#0032;the&#0032;simplest&#0032;static&#0032;site&#0032;generator&#0032;in&#0032;the&#0032;world&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
