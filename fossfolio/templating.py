@@ -33,7 +33,7 @@ def apply_mapping(
     """
 
     rendered_output = TEMPLATE_ENV.render(
-        location=mapping["template"], context={"content": html_string, **contexts}
+        location=mapping["template"], context={"content": html_string, **contexts, "metadata": metadata}
     )
 
     if verbose:

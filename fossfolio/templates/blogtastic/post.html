@@ -1,15 +1,37 @@
 {% extends 'base/base.html' %}
 {% block content %}
-
-        <h1 class="border-b-2 my-2 p-3 text-4xl font-bold">
-            {% if title %}    
-                {{ title }}
+    <div class="border-b-2 my-2 p-3 ">
+        <h1 class="text-4xl font-bold">
+            {% if metadata.document_title %}    
+                {{ metadata.document_title[0] }}
             {% else %}
                 Default title
             {% endif %}
         </h1>
-        <div class="px-3 py-2 my-2 mx-3 space-y-3 text-xl">
-            {{ content }}
+        <div id="summary" class="py-3 my-3 text-2xl font-semibold text-gray-500">
+            {% if metadata.summary %}    
+                {{ metadata.summary[0] }}
+            {% endif %}
         </div>
+        <div class="px-2 py-5 text-gray-700">
+            {% if metadata.date %}
+                <p id="published_on">Date Published: {{ metadata.date[0] }}</p>
+            {% endif %}
+            {% if metadata.authors %}
+                <p id="authors" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    Author(s):
+                    {% for author in metadata.authors %}
+                        {{ author }}&nbsp;&nbsp;
+                    {% endfor %}
+                </p>
+            {% endif %}
+            {% if metadata.cover_image_source %}
+                <img src="{{ metadata.cover_image_source[0] }}" alt="{% if metadata.cover_image_alt %}{{ metadata.cover_image_alt[0] }}{% else %}{{ metadata.document_title[0] }}{% endif %}" class="mx-auto">
+            {% endif %}
+        </div>
+    </div>
+    <div class="px-3 py-2 my-2 mx-3 space-y-3 text-xl">
+        {{ content }}
+    </div>
         
 {% endblock %}
