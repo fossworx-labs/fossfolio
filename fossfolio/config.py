@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Tuple
 from jinja2 import Environment, FileSystemLoader, Template
+import yaml
 
 BASE_DIR = Path(__file__).parent
 
@@ -11,6 +12,7 @@ DOMAIN_NAME: str = "https://anuran-roy.github.io"
 MARKDOWN_EXTENSIONS: List = [
     "extra",
     "toc",
+    "codehilite",
 ]
 # Contains list of Markdown extensions to be used while processing markdown.
 # Refer https://python-markdown.github.io/extensions/ for more details
@@ -18,7 +20,7 @@ MARKDOWN_EXTENSIONS: List = [
 
 # Templating configuration
 
-TEMPLATE_NAME: str = "_default"  # You can try "alt" here as well
+TEMPLATE_NAME: str = "blogtastic"  # You can try "alt" or "default" here as well
 
 TEMPLATE_DIR: str = BASE_DIR.absolute() / f"templates/{TEMPLATE_NAME}/"
 
@@ -36,10 +38,16 @@ class TemplatingEnv:
         self.environment = Environment(
             loader=self.loader, enable_async=enable_async, autoescape=enable_autoescape
         )
+        self.template_config = yaml.safe_load(stream=open(TEMPLATE_DIR / "config.yml")) if os.path.exists(TEMPLATE_DIR / "config.yml") else {}
 
-    def render(self, location: str, context: Optional[Dict] = {},verbose: Optional[bool] = True) -> str:
+    def render(
+        self,
+        location: str,
+        context: Optional[Dict] = {},
+        verbose: Optional[bool] = True,
+    ) -> str:
         required_template = self.environment.get_template(location)
-        return required_template.render(**context)
+        return required_template.render(**context, **self.template_config)
 
 
 TEMPLATE_ENV = TemplatingEnv()

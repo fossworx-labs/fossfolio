@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+    <div class="border-r-2 col-span-7" id="content">
+        <h1 class="border-b-2 my-2 p-3 text-4xl font-bold">
+            {% if title %}    
+                {{ title }}
+            {% else %}
+                Default title
+            {% endif %}
+        </h1>
+        <div class="px-3 py-2 my-2">
+            {{ content }}
+        </div>
+        
+    </div>
+{% endblock %}
