@@ -26,10 +26,15 @@ def apply_mapping(
     mapping: Dict[str, Any] = {},
     contexts: Optional[Dict[str, Any]] = {},
     verbose: Optional[bool] = False,
+    metadata: Optional[Dict[str, Any]] = {},
 ) -> str:
     """The method where the mappings are actually
     applied with different archetypes of content.
     """
+
+    rendered_output = TEMPLATE_ENV.render(
+        location=mapping["template"], context={"content": html_string, **contexts, "metadata": metadata}
+    )
 
     if verbose:
         rich_print(
@@ -37,24 +42,17 @@ def apply_mapping(
             len(html_string),
         )
 
-        a = TEMPLATE_ENV.render(
-            location=mapping["template"], context={"content": html_string, **contexts}
-        )
-
         rich_print(
             f"Rendered html string with mapping {mapping}. Length of string: {len(a)}"
         )
-    return prettify_html(
-        TEMPLATE_ENV.render(
-            location=mapping["template"], context={"content": html_string, **contexts}
-        )
-    )
+    return prettify_html(rendered_output)
 
 
 def wrap_template(
     html_string: str = "",
     location: str = "",
     verbose: bool = False,
+    metadata: Dict[str, Any] = {},
     *args: Optional[List],
     **kwargs: Optional[Dict],
 ) -> Dict[str, Any]:
@@ -99,6 +97,7 @@ def wrap_template(
         html_string=html_string,
         mapping=detected_archetype_mapping,
         contexts=context_dict,
+        metadata=metadata,
     )
 
 
