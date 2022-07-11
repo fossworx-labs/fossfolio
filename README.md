@@ -1,13 +1,6 @@
 # FOSSFolio
 <img src="https://user-images.githubusercontent.com/76481787/178124946-03464baa-9493-44a4-93e1-e52e5ef1ad5c.png" alt="Fossfolio Logo" width="50%">
 
-![Codacy branch grade](https://img.shields.io/codacy/grade/2b91d2338bc343b9a00c633493c9f78b/main?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/anuran-roy/fossfolio?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/anuran-roy/fossfolio?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/anuran-roy/fossfolio?style=for-the-badge)
-![Lines of code](https://img.shields.io/tokei/lines/github/anuran-roy/fossfolio?style=for-the-badge)
-![Website](https://img.shields.io/website?down_color=red&down_message=down&style=for-the-badge&up_color=green&up_message=up&url=https%3A%2F%2Fanuran-roy.github.io%2Ffossfolio%2F)
-<br><br>
 <a href="https://www.producthunt.com/posts/fossfolio?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-fossfolio" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=352081&theme=light" alt="Fossfolio - Probably&#0032;the&#0032;simplest&#0032;static&#0032;site&#0032;generator&#0032;in&#0032;the&#0032;world&#0033; | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 Probably the simplest static site generator in the world! (Yes, inspired from Carlsberg commercials 😜)  
