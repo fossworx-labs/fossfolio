@@ -16,32 +16,16 @@
       >
         {% block navbar %}
         <div
-          class="h-screen overflow-hidden justify-center flex flex-col text-center col-span-1"
+          class="h-100 overflow-hidden justify-center flex flex-col text-center col-span-1"
         >
-          <a
-            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-            id="link1"
-            href="/link1"
-            >Link 1</a
-          >
-          <a
-            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-            id="link2"
-            href="/link2"
-            >Link 2</a
-          >
-          <a
-            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-            id="link3"
-            href="/link3"
-            >Link 3</a
-          >
-          <a
-            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-            id="link4"
-            href="/link4"
-            >Link 4</a
-          >
+            {% for i in links %}
+                <a
+                    class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+                    id="{{ i }}"
+                    href="{{ links[i] }}"
+                >{{ i }}</a
+                >
+            {% endfor %}
         </div>
         {% endblock %}
         <div class="border-r-2 border-l-2 col-span-7 overflow-y-scroll" id="content">
@@ -51,26 +35,24 @@
         </div>
         {% block meta %}
         <div
-          class="sticky top-0 bottom-0 h-screen justify-center flex flex-col col-span-2 text-center m-3"
+          class="sticky top-0 bottom-0 h-screen justify-center content-center align-center object-center flex flex-col col-span-2 text-center m-3"
           id="meta"
         >
-          <p>{{ meta }}</p>
-          <p class="flex flex-col">
-            <a
-              class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-              href="{{ github }}"
-              >Github</a
-            >
-            <a
-              class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-              href="{{ twitter }}"
-              >Twitter</a
-            >
-            <a
-              class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
-              href="{{ linkedin }}"
-              >LinkedIn</a
-            >
+          <p class="flex justify-center items-center flex-col">
+            <img src="{{ about_pic_source }}" alt="Author Picture" class="rounded-full py-5 my-5" width="30%">
+            <div class="text-2xl text-center font-bold">
+                About
+            </div>
+            {{ about }}
+          </p>
+          <p class="flex flex-col lg:columns-3 columns-1 py-5 my-5">
+            {% for i in socials %}
+                <a
+                class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+                href="{{ socials[i] }}"
+                >{{ i }}</a
+                >
+            {% endfor %}
           </p>
         </div>
         {% endblock %}

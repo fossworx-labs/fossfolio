@@ -1,0 +1,21 @@
+links:
+    Home: "/"
+    Posts: "/posts"
+    About : "/intro"
+    Sitemap: "/sitemap.xml"
+about: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, accusamus
+explicabo a veritatis culpa, expedita quos illo quibusdam earum mollitia
+molestiae ducimus sed sunt sit. Magnam earum quia est a iure voluptatem eligendi
+excepturi placeat facilis. Quaerat explicabo omnis consequatur officiis amet
+fugiat laboriosam quibusdam. Voluptatem obcaecati quos minus nostrum voluptatum
+accusantium sequi, aliquam repellendus, recusandae mollitia esse consequatur
+quidem. Vero impedit natus accusamus nobis blanditiis rerum quo corporis
+necessitatibus dolores recusandae iusto, temporibus a itaque obcaecati quisquam
+illo alias cum. Quibusdam odio porro officia, eos magnam eligendi sit voluptate
+rerum ipsam cum perspiciatis deleniti saepe reiciendis quam blanditiis iure!
+"
+about_pic_source: "https://pbs.twimg.com/profile_images/1421779872364564482/vZljyGHa_400x400.jpg"
+socials:
+    GitHub: http://github.com/fossworx-labs/
+    LinkedIn: http://www.linkedin.com/in/anuran-roy/
+    Twitter: http://twitter.com/AnuranRoy
