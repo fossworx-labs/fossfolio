@@ -1,6 +1,15 @@
 {% extends 'base/base.html' %}
 {% block content %}
-<p class="mx-3 p-5 font-md w-50">
-    {{ content }}
-</p>
+
+        <h1 class="border-b-2 my-2 p-3 text-4xl font-bold">
+            {% if title %}    
+                {{ title }}
+            {% else %}
+                Default title
+            {% endif %}
+        </h1>
+        <div class="px-3 py-2 my-2 mx-3 space-y-3 text-xl">
+            {{ content }}
+        </div>
+        
 {% endblock %}

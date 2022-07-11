@@ -1,23 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
     <title>{{ title }}</title>
     {% block dependencies %}{% endblock %}
-</head>
-<body>
-    {% block navbar %}
-        <p class="p-5 flex justify-center items-center flex-row bg-gray-900 space-between gap-5" id="navbar">
-            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/index">Home</a>
-            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/blog">Blog</a>
-            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/about">About</a>
-            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="https://github.com/anuran-roy/fossfolio">FOSSFolio</a>
-        </p>
-    {% endblock %}
-    {% block content %}{% endblock %}
-    {% include 'partials/footer.html' %}
-</body>
+  </head>
+  <body>
+    <div class="font-serif">
+      <div
+        class="grid grid-cols-1 mx-3 lg:grid-cols-10 w-100 h-screen"
+        id="navbar"
+      >
+        {% block navbar %}
+        <div
+          class="h-screen overflow-hidden justify-center flex flex-col text-center col-span-1"
+        >
+          <a
+            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+            id="link1"
+            href="/link1"
+            >Link 1</a
+          >
+          <a
+            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+            id="link2"
+            href="/link2"
+            >Link 2</a
+          >
+          <a
+            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+            id="link3"
+            href="/link3"
+            >Link 3</a
+          >
+          <a
+            class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+            id="link4"
+            href="/link4"
+            >Link 4</a
+          >
+        </div>
+        {% endblock %}
+        <div class="border-r-2 border-l-2 col-span-7 overflow-y-scroll" id="content">
+          {% block content %}{% endblock %}
+          <div class="invisible py-5 my-5">
+          </div>
+        </div>
+        {% block meta %}
+        <div
+          class="sticky top-0 bottom-0 h-screen justify-center flex flex-col col-span-2 text-center m-3"
+          id="meta"
+        >
+          <p>{{ meta }}</p>
+          <p class="flex flex-col">
+            <a
+              class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+              href="{{ github }}"
+              >Github</a
+            >
+            <a
+              class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+              href="{{ twitter }}"
+              >Twitter</a
+            >
+            <a
+              class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md"
+              href="{{ linkedin }}"
+              >LinkedIn</a
+            >
+          </p>
+        </div>
+        {% endblock %}
+      </div>
+      {% include 'partials/footer.html' %}
+    </div>
+  </body>
 </html>

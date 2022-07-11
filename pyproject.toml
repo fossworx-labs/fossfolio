@@ -12,6 +12,7 @@ rich = "^12.4.4"
 Jinja2 = "^3.1.2"
 Markdown = "^3.3.7"
 python-slugify = "^6.1.2"
+PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
