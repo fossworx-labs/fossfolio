@@ -37,7 +37,12 @@ class TemplatingEnv:
             loader=self.loader, enable_async=enable_async, autoescape=enable_autoescape
         )
 
-    def render(self, location: str, context: Optional[Dict] = {},verbose: Optional[bool] = True) -> str:
+    def render(
+        self,
+        location: str,
+        context: Optional[Dict] = {},
+        verbose: Optional[bool] = True,
+    ) -> str:
         required_template = self.environment.get_template(location)
         return required_template.render(**context)
 

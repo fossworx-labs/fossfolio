@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+    <title>{{ title }}</title>
+    {% block dependencies %}{% endblock %}
+</head>
+<body>
+    {% block navbar %}
+        <p class="p-5 flex justify-center items-center flex-row bg-gray-900 space-between gap-5" id="navbar">
+            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/index">Home</a>
+            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/blog">Blog</a>
+            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/about">About</a>
+            <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="https://github.com/anuran-roy/fossfolio">FOSSFolio</a>
+        </p>
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% include 'partials/footer.html' %}
+</body>
+</html>
