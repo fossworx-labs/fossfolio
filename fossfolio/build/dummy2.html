@@ -10,37 +10,557 @@
   </title>
  </head>
  <body>
-  <p class="p-5 flex justify-center items-center flex-row bg-gray-900 space-between gap-5" id="navbar">
-   <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/index">
-    Home
-   </a>
-   <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/blog">
-    Blog
-   </a>
-   <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="/about">
-    About
-   </a>
-   <a class="text-white text-2xl font-bold px-2 py-1 hover:bg-gray-500 hover:rounded-md" href="https://github.com/anuran-roy/fossfolio">
-    FOSSFolio
-   </a>
-  </p>
-  <p class="mx-3 p-5 font-md container">
-   <h2 id="hi-there">
-    Hi there!
-   </h2>
-  </p>
-  <div class="flex justify-center items-center flex-col" id="footer">
-   <span class="text-gray-500 text-center">
-    Using Default theme in
-    <a class="font-bold text-blue-500" href="https://github.com/anuran-roy/fossfolio">
-     FOSSfolio
-    </a>
-    . Made by
-    <a class="font-bold text-blue-500" href="https://linktr.ee/anuranroy">
-     Anuran
-    </a>
-    with 💙
-   </span>
+  <div class="font-serif">
+   <div class="grid grid-cols-1 mx-3 lg:grid-cols-10 w-100 h-screen" id="navbar">
+    <div class="h-100 overflow-hidden justify-center flex flex-col text-center col-span-1">
+     <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="/" id="Home">
+      Home
+     </a>
+     <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="/posts" id="Posts">
+      Posts
+     </a>
+     <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="/intro" id="About">
+      About
+     </a>
+     <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="/sitemap.xml" id="Sitemap">
+      Sitemap
+     </a>
+    </div>
+    <div class="border-r-2 border-l-2 col-span-7 overflow-y-scroll" id="content">
+     <h1 class="border-b-2 my-2 p-3 text-4xl font-bold">
+      Default title
+     </h1>
+     <div class="px-3 py-2 my-2 mx-3 space-y-3 text-xl">
+      <h2 class="p-3 text-4xl font-bold" id="no-more-sphinx">
+       No more Sphinx
+      </h2>
+      <p>
+       The long-lived and long-loved CMU Sphinx, a brainchild of Carnegie Mellon University, is not maintained actively anymore, since 5 years. But does that mean that we need to move to more production-oriented solutions? No, we actually don't. The team CMU Sphinx Project has slowly rolled in a new child project -
+       <a href="https://alphacephei.com/vosk">
+        <strong>
+         Vosk
+        </strong>
+       </a>
+       .
+      </p>
+      <p>
+       Note that there are many other production-oriented solutions available (like OpenVINO, Mozilla DeepSpeech, etc.), which are equally as good, if not better at speech recognition. I am focusing on the ease of setup and use. 😅
+      </p>
+      <h2 class="p-3 text-4xl font-bold" id="okay-i-dont-know-what-you-are-talking-about-please-explain-more">
+       Okay, I don't know what you are talking about. Please explain more.
+      </h2>
+      <p>
+       Quoting the
+       <a href="https://cmusphinx.github.io/wiki/about/">
+        <strong>
+         Official CMU Sphinx wiki's About section
+        </strong>
+       </a>
+       (forgive me for being lazy):
+      </p>
+      <p>
+       <img alt="CMUSphinx Wiki About Section" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626621691957/5JfVUHJxE.png"/>
+      </p>
+      <h3 class="p-3 text-4xl font-bold" id="i-get-it-but-why-do-you-call-this-dead">
+       I get it, but why do you call this dead?
+      </h3>
+      <p>
+       This is the screenshot of the two most recent posts on the
+       <a href="https://cmusphinx.github.io/">
+        <strong>
+         CMU Sphinx Official Blog
+        </strong>
+       </a>
+       :
+      </p>
+      <p>
+       <img alt="**CMUSphinx blog**" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626466904859/9OZ2VX4IU.png"/>
+      </p>
+      <p>
+       Also this
+       <a href="https://news.ycombinator.com/item?id=13040523">
+        <strong>
+         discussion
+        </strong>
+       </a>
+       from YCombinator:
+      </p>
+      <p>
+       <img alt="**YCombinator thread**" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626467333151/gAridT3-q.png"/>
+      </p>
+      <p>
+       Even if I disagree with the YCombinator discussion, the official CMU Sphinx blog does little to give me confidence.
+      </p>
+      <h2 class="p-3 text-4xl font-bold" id="okay-i-get-it-so-what-now">
+       Okay I get it. So what now?
+      </h2>
+      <p>
+       Another screenshot from the main
+       <a href="https://cmusphinx.github.io/">
+        <strong>
+         CMU Sphinx website
+        </strong>
+       </a>
+       :
+      </p>
+      <p>
+       <img alt="**CMUSphinx page head**" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626467505926/MDDCitxMU.png"/>
+      </p>
+      <p>
+       Not gonna lie, I was pretty disappointed 🙁. I've been a Sphinx user for quite sometime. I'm no researcher, but I was actually familiar with Sphinx. So I wondered how Vosk would do for me. And I was really surprised at the gentle learning curve to implement Vosk to my apps. But there is really less documentation at the time of writing this blog. I hope this post will fill up some of that gap.
+      </p>
+      <p>
+       Anyways, enough chatter. So in this post, I am going to show you how to setup a simple Python script to recognize your speech, using it alongside NLTK to identify your speech and extract the keywords. The end result? A fully functional system that takes your voice input and processes it reasonably accurately, so that you can add voice control features to any awesome projects you may be building! 😃
+      </p>
+      <h2 class="p-3 text-4xl font-bold" id="setting-up">
+       Setting up:
+      </h2>
+      <h3 class="p-3 text-2xl font-bold" id="stage-0-resolving-system-level-dependencies">
+       Stage 0: Resolving system-level dependencies:
+      </h3>
+      <blockquote>
+       <p>
+        "Know thy tools." ~ Some great person.
+       </p>
+      </blockquote>
+      <p>
+       Okay so before I start, let's see with what we'll be working on:
+      </p>
+      <div class="list-decimal px-5">
+       <li>
+        A Linux System (Ubuntu in my case). Windows and Mac users, don't be disheartened - the programming part is the same for all.
+       </li>
+       <li>
+        PulseAudio Audio Drivers
+       </li>
+       <li>
+        Python 3.8 with pip working.
+       </li>
+       <li>
+        A working Internet connection
+       </li>
+       <li>
+        An IDE (preferably) (VSCode in my case)
+       </li>
+       <li>
+        A microphone (or a headphone or earphone with an attached microphone)
+       </li>
+      </div>
+      <p>
+       So first, we need to install the appropriate
+       <code>
+        pulseaudio
+       </code>
+       ,
+       <code>
+        alsa
+       </code>
+       and
+       <code>
+        jack
+       </code>
+       drivers, among others.
+      </p>
+      <p>
+       Assuming you're running Debian (or Ubuntu), type the following commands:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gcc</span><span class="w"> </span><span class="n">automake</span><span class="w"> </span><span class="n">autoconf</span><span class="w"> </span><span class="n">libtool</span><span class="w"> </span><span class="n">bison</span><span class="w"> </span><span class="n">swig</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">dev</span><span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libpulse</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">jackd</span><span class="w"> </span><span class="n">libasound2</span><span class="o">-</span><span class="n">dev</span><span class="w"></span>
+</code></pre>
+      </div>
+      <p>
+       <strong>
+        Note
+       </strong>
+       : Don't try to combine the above 2 statements (no pro-gamer move now 😜).
+       <code>
+        libasound2-dev
+       </code>
+       and
+       <code>
+        jackd
+       </code>
+       require
+       <code>
+        swig
+       </code>
+       to build their driver codes.
+      </p>
+      <p>
+       If you're familiar with CMU Sphinx, you'd realise that there are a lot of common dependencies - which is no coincidence. Vosk comes from Sphinx itself.
+      </p>
+      <p>
+       <em>
+        If you face some issues with installing
+        <code>
+         swig
+        </code>
+        , don't worry. Just Google your error with the keyword CMU Sphinx.
+       </em>
+      </p>
+      <h3 class="p-3 text-2xl font-bold" id="stage-1-setting-up-vosk-api">
+       Stage 1: Setting up Vosk-API
+      </h3>
+      <p>
+       First, we need to download Vosk-API. The Vosk API needs less setup, compared to the original source code.
+      </p>
+      <p>
+       Assuming you have git installed on your system, enter in your terminal:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code>git clone https://github.com/alphacep/vosk-api.git
+</code></pre>
+      </div>
+      <p>
+       If you don't have git, or have some other issues with it,
+       <a href="https://github.com/alphacep/vosk-api">
+        <strong>
+         download Vosk-API from here
+        </strong>
+       </a>
+       .
+      </p>
+      <div class="list-decimal px-5">
+       <li>
+        Create a project folder (say speech2command). Download (or clone) the Vosk-api code into a subfolder there.
+       </li>
+       <li>
+        Now extract the .zip file (or .tar.gz file) into your project folder (if you downloaded the source code as an archive).
+       </li>
+      </div>
+      <p>
+       Your directory structure should look something like this:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code>speech2command
+     |_______ vosk-api
+     |_______ ...
+</code></pre>
+      </div>
+      <p>
+       Now we're good to go.
+      </p>
+      <h3 class="p-3 text-2xl font-bold" id="stage-2-setting-up-a-language-model">
+       Stage 2: Setting up a language model
+      </h3>
+      <p>
+       The versatility of Vosk (or CMUSphinx) comes from its ability to use models to recognize various languages.
+      </p>
+      <p>
+       Simply put, models are the parts of Vosk that are language-specific and supports speech in different languages. At the time of writing, Vosk has support for more than 18 languages including Greek, Turkish, Chinese, Indian English, etc.
+      </p>
+      <p>
+       <a href="https://alphacephei.com/vosk/models">
+        <strong>
+         The Vosk Model Wiki
+        </strong>
+       </a>
+      </p>
+      <p>
+       In this post, we are going to use the
+       <a href="http://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip">
+        <strong>
+         small American English model
+        </strong>
+       </a>
+       . It's compact (around 40 Mb) and reasonably accurate.
+      </p>
+      <p>
+       Download the model and extract it in your project folder. Rename the folder you extracted from the .zip file as
+       <code>
+        model
+       </code>
+       . Now, your directory structure should look like this:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code>speech2command
+     |_______ vosk-api
+     |_______ model
+     |_______ ...
+</code></pre>
+      </div>
+      <p>
+       Here is a video walkthrough (albeit a bit old):
+      </p>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/Itic1lFc4Gg" title="YouTube video player" width="560">
+      </iframe>
+      <p>
+       <br/>
+      </p>
+      <h3 class="p-3 text-2xl font-bold" id="stage-3-setting-up-python-packages">
+       Stage 3: Setting up Python Packages
+      </h3>
+      <p>
+       For our project, we need the following Python packages:
+      </p>
+      <div class="list-decimal px-5">
+       <li>
+        platform
+       </li>
+       <li>
+        Speech Recognition
+       </li>
+       <li>
+        NLTK
+       </li>
+       <li>
+        JSON
+       </li>
+       <li>
+        sys
+       </li>
+       <li>
+        Vosk
+       </li>
+      </div>
+      <p>
+       The packages
+       <code>
+        platform
+       </code>
+       ,
+       <code>
+        sys
+       </code>
+       and
+       <code>
+        json
+       </code>
+       come included in a standard Python 3 installation. We need to install the other packages manually.
+      </p>
+      <p>
+       In the command line, type:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code>pip install nltk speech_recognition vosk
+</code></pre>
+      </div>
+      <p>
+       Wait as the components get installed one by one.
+      </p>
+      <h3 class="p-3 text-2xl font-bold" id="stage-4-setting-up-nltk-packages">
+       Stage 4: Setting up NLTK Packages
+      </h3>
+      <p>
+       Now NLTK is a huge package, with a dedicated index to manage its components. We just downloaded the NLTK core components to get a basic program up and running. We need a few more NLTK components to add to continue with the code.
+      </p>
+      <p>
+       The required packages are:
+       <code>
+        stopwords
+       </code>
+       ,
+       <code>
+        averaged_perceptron_tagger
+       </code>
+       ,
+       <code>
+        punkt
+       </code>
+       , and
+       <code>
+        wordnet
+       </code>
+       .
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span><span class="w"></span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"averaged_perceptron_tagger"</span><span class="p">)</span><span class="w"></span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"punkt"</span><span class="p">)</span><span class="w"></span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"wordnet"</span><span class="p">)</span><span class="w"></span>
+</code></pre>
+      </div>
+      <p>
+       Or in one line:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">,</span><span class="w"> </span><span class="s2">"averaged_perceptron_tagger"</span><span class="p">,</span><span class="w"> </span><span class="s2">"punkt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wordnet"</span><span class="p">)</span><span class="w"></span>
+</code></pre>
+      </div>
+      <h3 class="p-3 text-2xl font-bold" id="stage-5-programming-with-vosk-and-nltk">
+       Stage 5: Programming with Vosk and NLTK.
+      </h3>
+      <p>
+       Here comes the fun part! Let's code something in Python to identify speech and convert it to text, using Vosk-API as the backend.
+      </p>
+      <p>
+       Make a new Python file (say
+       <code>
+        s2c.py
+       </code>
+       ) in your project folder. Now the project folder directory structure should look like:
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code>speech2command
+     |_______ vosk-api
+     |_______ model
+     |_______ s2c.py
+     |_______ ...
+</code></pre>
+      </div>
+      <h4 class="p-3 text-xl font-bold" id="coding-time-now">
+       Coding time now! 🤩
+      </h4>
+      <p>
+       Okay, so the code for the project is given below. The code is pretty clean (or so I hope), and you can understand the code yourself (or just copy-paste it 😜).
+      </p>
+      <div class="codehilite">
+       <pre><span></span><code><span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span><span class="p">,</span> <span class="n">wordnet</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">vosk</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">vosk</span> <span class="kn">import</span> <span class="n">SetLogLevel</span>
+
+<span class="n">SetLogLevel</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Hide Vosk logs</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">listen</span><span class="p">():</span>
+    <span class="n">rec</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">Recognizer</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">sr</span><span class="o">.</span><span class="n">Microphone</span><span class="p">()</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+        <span class="n">rec</span><span class="o">.</span><span class="n">adjust_for_ambient_noise</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">recognize_vosk</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="c1"># Connecting to Vosk API</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sorry, couldn't hear. Mind trying typing it?"</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cmd</span>
+
+
+<span class="k">def</span> <span class="nf">pos_tagger</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'J'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">ADJ</span>
+    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'V'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">VERB</span>
+    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'N'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">NOUN</span>
+    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'R'</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">ADV</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">lemmatizer</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+    <span class="n">pos_tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">src</span><span class="p">))</span>
+    <span class="n">wn_tagged</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos_tagger</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">pos_tagged</span><span class="p">))</span>
+    <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># lemmatized sentence</span>
+    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">wn_tagged</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">tag</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ls</span>
+
+
+<span class="k">def</span> <span class="nf">make_tokens</span><span class="p">(</span><span class="n">lms</span><span class="p">):</span>
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)</span>
+    <span class="n">src3</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lms</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">src3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Keywords are:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">src3</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Say some words: "</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">listen</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Listened value="</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Command ="</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s2">"text"</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"text"</span><span class="p">])</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'stop'</span><span class="p">,</span> <span class="s1">'exit'</span><span class="p">,</span> <span class="s1">'bye'</span><span class="p">,</span> <span class="s1">'quit'</span><span class="p">,</span> <span class="s1">'terminate'</span><span class="p">,</span> <span class="s1">'kill'</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Exit command triggered from command! Exiting..."</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+        <span class="n">lemmatized</span> <span class="o">=</span> <span class="n">lemmatizer</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"text"</span><span class="p">])</span>
+        <span class="n">make_tokens</span><span class="p">(</span><span class="n">lemmatized</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Exit command triggered from Keyboard! Exiting..."</span><span class="p">)</span>
+</code></pre>
+      </div>
+      <p>
+       Now run this code, and this will set up a listener that works continuously - with some verbose logs as well - which you can see on your terminal screen. Ignore those logs, they are just for information.
+      </p>
+      <h4 class="p-3 text-xl font-bold" id="if-you-need-the-source-code-i-made-a-repo-for-it-vosk-demo">
+       If you need the source code, I made a repo for it:
+       <a href="https://github.com/anuran-roy/vosk-demo">
+        <strong>
+         Vosk Demo
+        </strong>
+       </a>
+      </h4>
+      <h3 class="p-3 text-2xl font-bold" id="explanation">
+       Explanation:
+      </h3>
+      <p>
+       Here is a flowchart that shows exactly how this works:
+      </p>
+      <p>
+       <img alt="**Project mechanism flowchart**" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1626590492431/US0gqw6pN.png"/>
+      </p>
+      <p>
+       So this was it, folks! Enjoy your very own speech2text (or rather, speech2command) recognition system. Keep tinkering!
+      </p>
+      <p>
+       Bye for now!
+      </p>
+      <p>
+       <br/>
+       <strong>
+        <em>
+         Ron
+        </em>
+       </strong>
+      </p>
+     </div>
+     <div class="invisible py-5 my-5">
+     </div>
+    </div>
+    <div class="sticky top-0 bottom-0 h-screen justify-center content-center align-center object-center flex flex-col col-span-2 text-center m-3" id="meta">
+     <p class="flex justify-center items-center flex-col">
+      <img alt="Author Picture" class="rounded-full py-5 my-5" src="https://pbs.twimg.com/profile_images/1421779872364564482/vZljyGHa_400x400.jpg" width="30%"/>
+      <div class="text-2xl text-center font-bold">
+       About
+      </div>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, accusamus explicabo a veritatis culpa, expedita quos illo quibusdam earum mollitia molestiae ducimus sed sunt sit. Magnam earum quia est a iure voluptatem eligendi excepturi placeat facilis. Quaerat explicabo omnis consequatur officiis amet fugiat laboriosam quibusdam. Voluptatem obcaecati quos minus nostrum voluptatum accusantium sequi, aliquam repellendus, recusandae mollitia esse consequatur quidem. Vero impedit natus accusamus nobis blanditiis rerum quo corporis necessitatibus dolores recusandae iusto, temporibus a itaque obcaecati quisquam illo alias cum. Quibusdam odio porro officia, eos magnam eligendi sit voluptate rerum ipsam cum perspiciatis deleniti saepe reiciendis quam blanditiis iure!
+     </p>
+     <p class="flex flex-col lg:columns-3 columns-1 py-5 my-5">
+      <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="http://github.com/fossworx-labs/">
+       GitHub
+      </a>
+      <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="http://www.linkedin.com/in/anuran-roy/">
+       LinkedIn
+      </a>
+      <a class="m-2 py-2 hover:bg-gray-800 hover:text-white rounded-md" href="http://twitter.com/AnuranRoy">
+       Twitter
+      </a>
+     </p>
+    </div>
+   </div>
+   <div class="fixed left-0 right-0 bottom-0 bg-gray-100 opacity-80 hover:opacity-100 p-3 align-center flex justify-center items-center flex-col" id="footer">
+    <span class="text-gray-700 text-center">
+     Using Blogtastic theme in
+     <a class="font-bold text-blue-500" href="https://github.com/anuran-roy/fossfolio">
+      FOSSfolio
+     </a>
+     . Made by
+     <a class="font-bold text-blue-500" href="https://linktr.ee/anuranroy">
+      Anuran
+     </a>
+     with 💙
+    </span>
+   </div>
   </div>
  </body>
 </html>
