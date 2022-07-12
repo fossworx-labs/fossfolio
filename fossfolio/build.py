@@ -7,7 +7,7 @@ from rich import print as rich_print
 import shutil
 import glob
 import time
-from config import BASE_DIR, MARKDOWN_EXTENSIONS
+from config import BASE_DIR, MARKDOWN_EXTENSIONS, MARKDOWN_INSTANCE
 from sitemap import generate_sitemap
 from slugify import slugify
 
@@ -21,7 +21,7 @@ def parse_md(md_string):
     # with open(md_file, "r") as f:
     #     md = f.read()
     # return markdown(md)
-    return markdown(md_string, extensions=MARKDOWN_EXTENSIONS)
+    return MARKDOWN_INSTANCE.render(md_string)
 
 
 def collect_static() -> None:
@@ -97,7 +97,7 @@ def list_files(
             rich_print("Reading file ", i.absolute())
             rich_print(path_dict[str(i)])
 
-    parsed_markdown: Dict[str, str] = inject.inject(path_dict)
+    parsed_markdown: Dict[str, Any] = inject.inject(path_dict)
 
     for i in parsed_markdown:
         parsed_markdown[i] = parse_md(parsed_markdown[i])
@@ -142,7 +142,9 @@ def build(
     if with_template:
         # Write the template embedding logic here.
         for i in files_dict:
-            files_dict[i] = wrap_template(html_string=files_dict[i], location=i)
+            files_dict[i] = wrap_template(
+                html_string=files_dict[i][1], metadata=files_dict[i][0], location=i
+            )
 
     for i in files_dict:
         if verbose:

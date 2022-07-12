@@ -3,8 +3,8 @@
 
     <div class="border-r-2 col-span-7" id="content">
         <h1 class="border-b-2 my-2 p-3 text-4xl font-bold">
-            {% if title %}    
-                {{ title }}
+            {% if metadata.document_title %}    
+                {{ metadata.document_title[0] }}
             {% else %}
                 Default title
             {% endif %}

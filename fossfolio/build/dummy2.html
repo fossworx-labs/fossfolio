@@ -7,6 +7,7 @@
   <script src="https://cdn.tailwindcss.com" type="text/javascript">
   </script>
   <title>
+   Speech Recognition with Vosk - A Tinkerer's canvas
   </title>
  </head>
  <body>
@@ -27,9 +28,27 @@
      </a>
     </div>
     <div class="border-r-2 border-l-2 col-span-7 overflow-y-scroll" id="content">
-     <h1 class="border-b-2 my-2 p-3 text-4xl font-bold">
-      Default title
-     </h1>
+     <div class="border-b-2 my-2 p-3">
+      <h1 class="text-4xl font-bold">
+       No more Sphinx: Speech Recognition with Vosk
+      </h1>
+      <div class="py-3 my-3 text-2xl font-semibold text-gray-500" id="summary">
+       The long-lived and long-loved CMU Sphinx, a brainchild of Carnegie Mellon University, is not maintained actively anymore, since 5 years. But does that mean that we need to move to more production-oriented solutions? No, we actually don't.
+      </div>
+      <div class="px-2 py-5 text-gray-700">
+       <p id="published_on">
+        Date Published: 2022-07-12 18:01:44
+       </p>
+       <p class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="authors">
+        Author(s):
+                    
+                        Anuran Roy  
+                    
+                        ABCD
+       </p>
+       <img alt="Cover Image for Post" class="mx-auto" src="https://www.thesoftwarereport.com/wp-content/uploads/2021/03/Voice-Recognition-Technology.jpg"/>
+      </div>
+     </div>
      <div class="px-3 py-2 my-2 mx-3 space-y-3 text-xl">
       <h2 class="p-3 text-4xl font-bold" id="no-more-sphinx">
        No more Sphinx
@@ -164,11 +183,9 @@
       <p>
        Assuming you're running Debian (or Ubuntu), type the following commands:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gcc</span><span class="w"> </span><span class="n">automake</span><span class="w"> </span><span class="n">autoconf</span><span class="w"> </span><span class="n">libtool</span><span class="w"> </span><span class="n">bison</span><span class="w"> </span><span class="n">swig</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">dev</span><span class="w"></span>
-<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libpulse</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">jackd</span><span class="w"> </span><span class="n">libasound2</span><span class="o">-</span><span class="n">dev</span><span class="w"></span>
+      <pre><code>sudo apt-get install gcc automake autoconf libtool bison swig python3-dev
+sudo apt-get install libpulse-dev jackd libasound2-dev
 </code></pre>
-      </div>
       <p>
        <strong>
         Note
@@ -208,10 +225,8 @@
       <p>
        Assuming you have git installed on your system, enter in your terminal:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code>git clone https://github.com/alphacep/vosk-api.git
+      <pre><code>git clone https://github.com/alphacep/vosk-api.git
 </code></pre>
-      </div>
       <p>
        If you don't have git, or have some other issues with it,
        <a href="https://github.com/alphacep/vosk-api">
@@ -232,12 +247,10 @@
       <p>
        Your directory structure should look something like this:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code>speech2command
+      <pre><code>speech2command
      |_______ vosk-api
      |_______ ...
 </code></pre>
-      </div>
       <p>
        Now we're good to go.
       </p>
@@ -273,13 +286,11 @@
        </code>
        . Now, your directory structure should look like this:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code>speech2command
+      <pre><code>speech2command
      |_______ vosk-api
      |_______ model
      |_______ ...
 </code></pre>
-      </div>
       <p>
        Here is a video walkthrough (albeit a bit old):
       </p>
@@ -332,10 +343,8 @@
       <p>
        In the command line, type:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code>pip install nltk speech_recognition vosk
+      <pre><code>pip install nltk speech_recognition vosk
 </code></pre>
-      </div>
       <p>
        Wait as the components get installed one by one.
       </p>
@@ -364,20 +373,16 @@
        </code>
        .
       </p>
-      <div class="codehilite">
-       <pre><span></span><code><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span><span class="w"></span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"averaged_perceptron_tagger"</span><span class="p">)</span><span class="w"></span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"punkt"</span><span class="p">)</span><span class="w"></span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"wordnet"</span><span class="p">)</span><span class="w"></span>
+      <pre><code>nltk.download("stopwords")
+nltk.download("averaged_perceptron_tagger")
+nltk.download("punkt")
+nltk.download("wordnet")
 </code></pre>
-      </div>
       <p>
        Or in one line:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">,</span><span class="w"> </span><span class="s2">"averaged_perceptron_tagger"</span><span class="p">,</span><span class="w"> </span><span class="s2">"punkt"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wordnet"</span><span class="p">)</span><span class="w"></span>
+      <pre><code>nltk.download("stopwords", "averaged_perceptron_tagger", "punkt", "wordnet")
 </code></pre>
-      </div>
       <h3 class="p-3 text-2xl font-bold" id="stage-5-programming-with-vosk-and-nltk">
        Stage 5: Programming with Vosk and NLTK.
       </h3>
@@ -391,104 +396,100 @@
        </code>
        ) in your project folder. Now the project folder directory structure should look like:
       </p>
-      <div class="codehilite">
-       <pre><span></span><code>speech2command
+      <pre><code>speech2command
      |_______ vosk-api
      |_______ model
      |_______ s2c.py
      |_______ ...
 </code></pre>
-      </div>
       <h4 class="p-3 text-xl font-bold" id="coding-time-now">
        Coding time now! 🤩
       </h4>
       <p>
        Okay, so the code for the project is given below. The code is pretty clean (or so I hope), and you can understand the code yourself (or just copy-paste it 😜).
       </p>
-      <div class="codehilite">
-       <pre><span></span><code><span class="kn">import</span> <span class="nn">platform</span>
-<span class="kn">import</span> <span class="nn">speech_recognition</span> <span class="k">as</span> <span class="nn">sr</span>
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span><span class="p">,</span> <span class="n">wordnet</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">vosk</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">vosk</span> <span class="kn">import</span> <span class="n">SetLogLevel</span>
+      <pre><code class="language-python">import platform
+import speech_recognition as sr
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords, wordnet
+import sys
+import vosk
+import json
+from vosk import SetLogLevel
 
-<span class="n">SetLogLevel</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Hide Vosk logs</span>
+SetLogLevel(-1) # Hide Vosk logs
 
-<span class="n">p</span> <span class="o">=</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="nf">listen</span><span class="p">():</span>
-    <span class="n">rec</span> <span class="o">=</span> <span class="n">sr</span><span class="o">.</span><span class="n">Recognizer</span><span class="p">()</span>
-    <span class="k">with</span> <span class="n">sr</span><span class="o">.</span><span class="n">Microphone</span><span class="p">()</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-        <span class="n">rec</span><span class="o">.</span><span class="n">adjust_for_ambient_noise</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-        <span class="n">audio</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">recognize_vosk</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="c1"># Connecting to Vosk API</span>
-    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Sorry, couldn't hear. Mind trying typing it?"</span><span class="p">)</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">cmd</span>
+p = platform.system()
 
 
-<span class="k">def</span> <span class="nf">pos_tagger</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'J'</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">ADJ</span>
-    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'V'</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">VERB</span>
-    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'N'</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">NOUN</span>
-    <span class="k">elif</span> <span class="n">tag</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'R'</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">ADV</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
+def listen():
+    rec = sr.Recognizer()
+    with sr.Microphone() as src:
+        rec.adjust_for_ambient_noise(src)
+        audio = rec.listen(src)
+    try:
+        cmd = rec.recognize_vosk(audio) # Connecting to Vosk API
+    except Exception:
+        print("Sorry, couldn't hear. Mind trying typing it?")
+        cmd = input()
+    return cmd
 
 
-<span class="k">def</span> <span class="nf">lemmatizer</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
-    <span class="n">pos_tagged</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">pos_tag</span><span class="p">(</span><span class="n">nltk</span><span class="o">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">src</span><span class="p">))</span>
-    <span class="n">wn_tagged</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pos_tagger</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">pos_tagged</span><span class="p">))</span>
-    <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># lemmatized sentence</span>
-    <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">wn_tagged</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">tag</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">tag</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">ls</span>
+def pos_tagger(tag):
+    if tag.startswith('J'):
+        return wordnet.ADJ
+    elif tag.startswith('V'):
+        return wordnet.VERB
+    elif tag.startswith('N'):
+        return wordnet.NOUN
+    elif tag.startswith('R'):
+        return wordnet.ADV
+    else:
+        return None
 
 
-<span class="k">def</span> <span class="nf">make_tokens</span><span class="p">(</span><span class="n">lms</span><span class="p">):</span>
-    <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)</span>
-    <span class="n">src3</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lms</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">src3</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s2">" "</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Keywords are:"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">src3</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
+def lemmatizer(src):
+    w = WordNetLemmatizer()
+    pos_tagged = nltk.pos_tag(nltk.word_tokenize(src))
+    wn_tagged = list(map(lambda x: (x[0], pos_tagger(x[1])), pos_tagged))
+    ls = []  # lemmatized sentence
+    for word, tag in wn_tagged:
+        if tag is None:
+            ls.append(word)
+        else:
+            ls.append(w.lemmatize(word, tag))
+    return ls
 
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Say some words: "</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">listen</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Listened value="</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Command ="</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s2">"text"</span><span class="p">])</span>
-        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"text"</span><span class="p">])</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'stop'</span><span class="p">,</span> <span class="s1">'exit'</span><span class="p">,</span> <span class="s1">'bye'</span><span class="p">,</span> <span class="s1">'quit'</span><span class="p">,</span> <span class="s1">'terminate'</span><span class="p">,</span> <span class="s1">'kill'</span><span class="p">,</span> <span class="s1">'end'</span><span class="p">]:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Exit command triggered from command! Exiting..."</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-        <span class="n">lemmatized</span> <span class="o">=</span> <span class="n">lemmatizer</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"text"</span><span class="p">])</span>
-        <span class="n">make_tokens</span><span class="p">(</span><span class="n">lemmatized</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Exit command triggered from Keyboard! Exiting..."</span><span class="p">)</span>
+def make_tokens(lms):
+    stop_words = set(stopwords.words('english')
+    src3 = []
+    for i in lms:
+        if i in stop_words:
+            pass
+        else:
+            src3.append(str(i)+" ")
+    print("Keywords are:", end=' ')
+    for i in src3:
+        print(i, end=' ')
+
+
+try:
+    while True:
+        print("\nSay some words: ")
+        c = listen()
+        print("Listened value=",c)
+        d = json.loads(c)
+        print("Command =", d["text"])
+        if str(d["text"]).rstrip(" ") in ['stop', 'exit', 'bye', 'quit', 'terminate', 'kill', 'end']:
+            print("\n\nExit command triggered from command! Exiting...")
+            sys.exit()
+        lemmatized = lemmatizer(d["text"])
+        make_tokens(lemmatized)
+except KeyboardInterrupt:
+    print("\n\nExit command triggered from Keyboard! Exiting...")
 </code></pre>
-      </div>
       <p>
        Now run this code, and this will set up a listener that works continuously - with some verbose logs as well - which you can see on your terminal screen. Ignore those logs, they are just for information.
       </p>
