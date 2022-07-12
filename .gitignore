@@ -3,3 +3,4 @@ venv
 env
 **/build
 **/rough_work*.*
+**/__ignore__
