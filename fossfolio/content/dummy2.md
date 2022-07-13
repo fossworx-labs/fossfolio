@@ -7,6 +7,7 @@ Date: <% current_time %>
 Cover_Image_Source: https://www.thesoftwarereport.com/wp-content/uploads/2021/03/Voice-Recognition-Technology.jpg
 Cover_Image_Alt: Cover Image for Post
 
+
 ## No more Sphinx {: .p-3 .text-4xl .font-bold }
 
 The long-lived and long-loved CMU Sphinx, a brainchild of Carnegie Mellon University, is not maintained actively anymore, since 5 years. But does that mean that we need to move to more production-oriented solutions? No, we actually don't. The team CMU Sphinx Project has slowly rolled in a new child project -  [**Vosk**](https://alphacephei.com/vosk).

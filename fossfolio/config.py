@@ -4,9 +4,13 @@ from jinja2 import Environment, FileSystemLoader
 from markdown import Markdown
 import yaml
 import os
-
+import sys
 
 BASE_DIR = Path(__file__).parent
+
+if BASE_DIR not in sys.path:
+    print(f"Added {BASE_DIR} to sys.path")
+    sys.path.append(BASE_DIR.absolute())
 
 DOMAIN_NAME: str = "https://anuran-roy.github.io"
 

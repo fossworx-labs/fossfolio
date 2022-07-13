@@ -7,11 +7,19 @@ from rich import print as rich_print
 import shutil
 import glob
 import time
-from config import BASE_DIR, MARKDOWN_EXTENSIONS, MARKDOWN_INSTANCE
+from config import MARKDOWN_EXTENSIONS, MARKDOWN_INSTANCE
 from sitemap import generate_sitemap
 from slugify import slugify
 
 from templating import wrap_template
+
+import sys
+
+BASE_DIR = Path(__file__).parent
+
+if BASE_DIR not in sys.path:
+    print(f"Added {BASE_DIR} to sys.path")
+    sys.path.append(BASE_DIR.absolute())
 
 # print(BASE_DIR.resolve())
 
