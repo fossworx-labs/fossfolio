@@ -1,6 +1,6 @@
 **/__pycache__
 venv
 env
-**/build
+**/build/**
 **/rough_work*.*
 **/__ignore__
