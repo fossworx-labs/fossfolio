@@ -5,6 +5,9 @@ from markdown import Markdown
 import yaml
 import os
 import sys
+from utils import get_platform_delimiter
+
+DELIMITER: str = get_platform_delimiter()  # Platform specific delimiter.
 
 BASE_DIR = Path(__file__).parent
 
@@ -74,7 +77,7 @@ class TemplatingEnv:
         self,
         location: str,
         context: Optional[Dict] = {},
-        verbose: Optional[bool] = True,
+        verbose: Optional[bool] = False,
     ) -> str:
         required_template = self.environment.get_template(location)
         return required_template.render(**context, **self.template_config)

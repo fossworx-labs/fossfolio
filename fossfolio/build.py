@@ -10,7 +10,7 @@ import time
 from config import MARKDOWN_EXTENSIONS, MARKDOWN_INSTANCE
 from sitemap import generate_sitemap
 from slugify import slugify
-
+from utils import get_html_path
 from templating import wrap_template
 
 import sys
@@ -99,19 +99,36 @@ def list_files(
             if not excluded(filename, dirpath, exclude, *args, **kwargs)
         ]
 
-    for i in listOfFiles:
-        path_dict[str(i)] = open(i.absolute(), "r").read()
+    for index, i in enumerate(listOfFiles):
+        path_dict[str(i)] = {
+            "next": "",
+            "previous": "",
+            "page": index+1,
+            "content": open(i.absolute(), "r").read()
+        }
+        
+        if verbose:
+            rich_print(path_dict[str(i)], end="\n\n")
+        
+        if index > 0 and index < len(listOfFiles)-1:
+            path_dict[str(listOfFiles[index-1])]["next"] = get_html_path(str(i))
+            path_dict[str(i)]["previous"] = get_html_path(str(listOfFiles[index-1]))
+        if index == len(listOfFiles)-1 and index > 0:
+            path_dict[str(i)]["previous"] = get_html_path(str(listOfFiles[index-1]))
+        if index == 0 and len(listOfFiles) > 1:
+            path_dict[str(i)]["next"] = get_html_path(str(listOfFiles[index+1]))
         if verbose:
             rich_print("Reading file ", i.absolute())
             rich_print(path_dict[str(i)])
+            rich_print(path_dict[str(i)], end="\n\n")
 
     parsed_markdown: Dict[str, Any] = inject.inject(path_dict)
 
     for i in parsed_markdown:
-        parsed_markdown[i] = parse_md(parsed_markdown[i])
+        parsed_markdown[i]["content"] = parse_md(parsed_markdown[i]["content"])
         if verbose:
             rich_print("\n\nParsed HTML ", i)
-            rich_print(parsed_markdown[str(i)])
+            rich_print(parsed_markdown[str(i)]["content"])
 
     return parsed_markdown
 
@@ -146,19 +163,25 @@ def build(
     shutil.rmtree(BASE_DIR / "build/", ignore_errors=True)
 
     files_dict = list_files(exclude=["templates"])
-
+    
+    if verbose:
+        rich_print(f"{__file__} > build: files_dict = {files_dict}")
+    
     if with_template:
         # Write the template embedding logic here.
         for i in files_dict:
-            files_dict[i] = wrap_template(
-                html_string=files_dict[i][1], metadata=files_dict[i][0], location=i
+            files_dict[i]["content"] = wrap_template(
+                html_string=files_dict[i]["content"][1],
+                attributes = {k: files_dict[i][k] for k in files_dict[i] if k != "content"},
+                metadata=files_dict[i]["content"][0],
+                location=i
             )
 
     for i in files_dict:
         if verbose:
             rich_print(f"files_dict.{i} = {files_dict[i][:10]}")
         write_html(
-            html_code=files_dict[i],
+            html_code=files_dict[i]["content"],
             html_file_location=f"{BASE_DIR}/build/{i[:i.rindex('/')]}/{slugify(i[i.rindex('/'):i.rindex('.')])}.html",
         )
 
