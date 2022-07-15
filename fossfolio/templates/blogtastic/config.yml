@@ -19,3 +19,8 @@ socials:
     GitHub: http://github.com/fossworx-labs/
     LinkedIn: http://www.linkedin.com/in/anuran-roy/
     Twitter: http://twitter.com/AnuranRoy
+navigation:
+    buttons: true
+    allow_next_parent_dir: false
+    previous: "Previous Post"
+    next: "Next Post"

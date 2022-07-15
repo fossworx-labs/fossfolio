@@ -1,0 +1,10 @@
+<div class="grid md:grid-cols-6 lg:grid-cols-8 grid-cols-1 w-100 my-5 py-5" id="navigation">
+
+    <a class="{% if attributes.previous == ''%}invisible{% endif %} justify-center hover:bg-gray-800 rounded-md hover:text-white font-bold border-2 col-span-1 lg:col-span-2 text-center text-gray-700 px-5 py-3 mx-5" href="{{ attributes.previous }}">
+        &#x2B05;&nbsp;&nbsp;{{ navigation.previous }}
+    </a>
+    <div class="col-span-1 md:cols-span-2 lg:col-span-4 px-5 mx-5 py-3"></div>
+    <a class="{% if attributes.next == ''%}invisible{% endif %} justify-center hover:bg-gray-800 rounded-md hover:text-white border-2 font-bold col-span-1 lg:col-span-2 text-center text-gray-700 px-5 py-3 mx-5" href="{{ attributes.next }}">
+        {{ navigation.next }}&nbsp;&nbsp;&#x27A1;
+    </a>
+</div>

@@ -4,9 +4,16 @@ from jinja2 import Environment, FileSystemLoader
 from markdown import Markdown
 import yaml
 import os
+import sys
+from utils import get_platform_delimiter
 
+DELIMITER: str = get_platform_delimiter()  # Platform specific delimiter.
 
 BASE_DIR = Path(__file__).parent
+
+if BASE_DIR not in sys.path:
+    print(f"Added {BASE_DIR} to sys.path")
+    sys.path.append(BASE_DIR.absolute())
 
 DOMAIN_NAME: str = "https://anuran-roy.github.io"
 
@@ -70,7 +77,7 @@ class TemplatingEnv:
         self,
         location: str,
         context: Optional[Dict] = {},
-        verbose: Optional[bool] = True,
+        verbose: Optional[bool] = False,
     ) -> str:
         required_template = self.environment.get_template(location)
         return required_template.render(**context, **self.template_config)

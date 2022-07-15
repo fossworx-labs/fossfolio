@@ -7,9 +7,9 @@ The run() method must return an object ( a string or a dictionary) from which va
 from datetime import datetime
 
 
-def run(template_str, *args, **kwargs):
+def run(template_dict: dict, *args, **kwargs):
     current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    new_str = template_str.replace(r"<% current_time %>", current_time)
+    template_dict["content"] = template_dict["content"].replace(r"<% current_time %>", current_time)
 
-    return new_str
+    return template_dict
