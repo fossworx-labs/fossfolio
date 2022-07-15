@@ -36,6 +36,7 @@
         {% endblock %}
         <div class="border-r-2 border-l-2 col-span-7 overflow-y-scroll" id="content">
           {% block content %}{% endblock %}
+          {% include 'partials/navigator.html' %}
           <div class="invisible py-5 my-5">
           </div>
         </div>
