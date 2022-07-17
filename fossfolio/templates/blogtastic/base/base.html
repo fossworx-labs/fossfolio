@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
-    <title>{{ title }}</title>
+    <title>
+      {% if metadata["page_title"] %}    
+          {{ metadata["page_title"][0] }}
+      {% else %}
+          Default title
+      {% endif %}
+    </title>
     {% block dependencies %}{% endblock %}
   </head>
   <body>
@@ -30,6 +36,7 @@
         {% endblock %}
         <div class="border-r-2 border-l-2 col-span-7 overflow-y-scroll" id="content">
           {% block content %}{% endblock %}
+          {% include 'partials/navigator.html' %}
           <div class="invisible py-5 my-5">
           </div>
         </div>

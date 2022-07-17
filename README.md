@@ -46,6 +46,14 @@ Developers or coding enthusiasts who need a static site (maybe like a blog) with
 </div>
 <br><br>
 
+**Post rendered with blogtastic theme using the `default.html` mapping:**
+
+<div style="display: flex;">
+  <img src="https://user-images.githubusercontent.com/76481787/178350406-539099fa-725a-4a6c-8643-7f4142ca8d91.png" alt="Sample page wrapped in blogtastic theme">
+</div>
+<br><br>
+
+
 **Example of an auto-generated sitemap**:
 
 <div style="display: flex;">
@@ -85,7 +93,7 @@ I've given two default plugins for now:
 
 * The `user_metadata` plugin: Inserts your PC's hostname wherever you insert `<% user %>` in your markdown files. 
 
-### Jinja templates *(Under devlopment)*
+### Jinja templates *(Under development)*
 
 You can use Jinja templates too. The context passing mechanism is under development.
 ## Hacking around
@@ -94,14 +102,15 @@ Keeping the intended audience in mind, the USP of FOSSFolio is the degree of cus
 
 You can even integrate the modules and functionalities into other larger programs!
 
-<h2 id="plugin-developmenr">Plugin Development</h2>
+<h2 id="plugin-development">Plugin Development</h2>
 
 A plugin can consist of anything, as long as it satisfies the following criteria:
 
 1. It has to act like a module (that is, it should have an `__init__.py`)
 2. It should have a `main.py` file that acts like a controller for other functionalities of the plugin.
 3. It should have a `run` method inside `main.py`, that will act as the controller method
-4. The `run` method should return a string containing the modified html code. (Be very careful at this step, since it may open your plugin to JS-based vulnerabilities. Any sanity checks are your responsibility - in exchange for maximum freedom with what you can do.) 
+4. The `run` method should return a dictionary containing the field `content` which will contain the modified html code. (Be very careful at this step, since it may open your plugin to JS-based vulnerabilities. Any sanity checks are your responsibility - in exchange for maximum freedom with what you can do.)
+5. Your plugin should support pipelining (i.e., stacking plugins on top of another, getting the final output after passing through functions sequentially).
 
 **Some points you may want to keep in mind:**
 

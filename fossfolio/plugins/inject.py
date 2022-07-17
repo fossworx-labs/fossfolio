@@ -6,6 +6,7 @@ from rich import print as rich_print
 ACTIVE_PLUGINS: Tuple = (
     "date_time",
     "user_metadata",
+    "draft_manager",
 )
 
 DEFAULT_INJECTION_SETTINGS: dict = {}
@@ -20,16 +21,17 @@ def import_plugins(*args: Optional[list], **kwargs: Optional[dict]) -> Dict[str,
     """Import plugins defined in the ACTIVE_PLUGINS variable"""
     plugins_dict: dict = {}
 
+    current_plugin: str = ""
     try:
-        for i in ACTIVE_PLUGINS:
-            import_str: str = f"plugins.{i}.main"
+        for current_plugin in ACTIVE_PLUGINS:
+            import_str: str = f"plugins.{current_plugin}.main"
 
             if sanity_check(import_str):
-                plugins_dict[f"{i}_main"] = importlib.import_module(import_str)
+                plugins_dict[f"{current_plugin}_main"] = importlib.import_module(import_str)
 
     except Exception as e:
         rich_print(
-            f"[bold red]{__file__}/import_plugins: Exception occured while importing plugins:[/bold red] \n{e}"
+            f"[bold red]{__file__}/import_plugins: Exception occured while importing plugin [/bold red]'{current_plugin}' \n{e}"
         )
 
     finally:
@@ -43,7 +45,7 @@ def inject(
     ---
     """
     imported_plugins: dict = import_plugins(*args, **kwargs)
-
+    plugin_process: str = ""
     if not imported_plugins:
         raise ImportError(f"{__file__}/inject: No pluggable items found.")
 
@@ -56,7 +58,7 @@ def inject(
 
     except Exception as e:
         rich_print(
-            f"[italic red]{__file__}/inject: Encountered error while injecting plugins: [/italic red]\n{e}"
+            f"[italic red]{__file__}/inject: Encountered error while injecting plugin: [/italic red] '{plugin_process}'\n{e}"
         )
 
     finally:
